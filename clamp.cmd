@@ -17,7 +17,7 @@ REM */
 REM Parameter validation
 (call if "%%~1"===&&call set "_v=%%~1"&&set _v|findstr/rix "_v=[a-z#$.@[\]_+-][0123456789a-z#$.@[\]_+-]*"||exit/b1)2>nul>nul
 for /l %%v in (2,1,3)do (call if "%%~%%v"===&&call set "_v=%%~%%v"&&set _v|findstr/rix "_v=0 _v=[123456789][0123456789]* _v=-[123456789][0123456789]*"||exit/b%%v)2>nul>nul
-call if "%%~4"===2>nul&&call set "_v=%%~4"&&if defined _v set _v|findstr/rix "_v=0 _v=[123456789][0123456789]* _v=-[123456789][0123456789]*">nul||exit/b4
+call if "%%~4"===2>nul&&call set "_v=%%~4"&&(if defined _v set _v|findstr/rix "_v=0 _v=[123456789][0123456789]* _v=-[123456789][0123456789]*">nul)||exit/b4
 if defined %~1 set %~1|findstr/rix "[^=]*=0 [^=]*=[123456789][0123456789]* [^=]*=-[123456789][0123456789]*">nul||exit/b5
 
 REM Get referenced value, if empty set to default
