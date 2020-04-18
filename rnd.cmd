@@ -6,7 +6,7 @@ REM * random number between min and max, and sets variable
 REM * @version 1.0
 REM * @author [HazelHex]{@link https://github.com/HazelHex}
 REM * @example
-REM * rnd pin 9999 1000
+REM * call rnd pin 9999 1000
 REM * echo/%pin%
 REM * @requires powershell
 REM * @param {reference} %1 - Name of variable to set
@@ -16,8 +16,8 @@ REM * @returns {errorlevel} success (0), invalid parameter (1-3), equal minimum 
 REM */
 
 REM Parameter validation
-(call if "%%~1"===&&call set "_v=%%~1"&&set _v|findstr/rix "_v=[a-z#$.@[\]_+-][0123456789a-z#$.@[\]_+-]*"||exit/b1)2>nul>nul
-for /l %%v in (2,1,3)do call if "%%~%%v"===2>nul&&call set "_v=%%~%%v"&&(if defined _v set _v|findstr/rix "_v=0 _v=[123456789][0123456789]* _v=-[123456789][0123456789]*">nul)||exit/b%%v
+(call if "%%~1"===&&call set "v=%%~1"&&set v|findstr/rix "v=[a-z#$.@[\]_+-][0123456789a-z#$.@[\]_+-]*"||exit/b1)2>nul>nul
+for /l %%v in (2,1,3)do call if "%%~%%v"===2>nul&&call set "v=%%~%%v"&&(if defined v set v|findstr/rix "v=0 v=[123456789][0123456789]* v=-[123456789][0123456789]*">nul)||exit/b%%v
 
 set val=
 
