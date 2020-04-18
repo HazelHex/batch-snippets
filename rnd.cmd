@@ -16,8 +16,8 @@ REM * @returns {errorlevel} success (0), invalid parameter (1-3), equal minimum 
 REM */
 
 REM Parameter validation
-(call if "%%~1"===&&call set "v=%%~1"&&set v|findstr/rix "v=[a-z#$.@[\]_+-][0123456789a-z#$.@[\]_+-]*"||exit/b1)2>nul>nul
-for /l %%v in (2,1,3)do call if "%%~%%v"===2>nul&&call set "v=%%~%%v"&&(if defined v set v|findstr/rix "v=0 v=[123456789][0123456789]* v=-[123456789][0123456789]*">nul)||exit/b%%v
+(call if "%%~1"===&&call set "0=%%~1"&&set 0|findstr/rix "0=[a-z#$.@[\]_+-][0123456789a-z#$.@[\]_+-]*"||exit/b1)2>nul>nul
+for /l %%v in (2,1,3)do call if "%%~%%v"===2>nul&&call set "0=%%~%%v"&&(if defined 0 set 0|findstr/rix "0=0 0=[123456789][0123456789]* 0=-[123456789][0123456789]*">nul)||exit/b%%v
 
 set val=
 
