@@ -16,14 +16,14 @@ REM * @returns {errorlevel} success (0), invalid parameter (1-3), equal minimum 
 REM */
 
 REM Parameter validation
-(call if "%%~1"===&&call set "0=%%~1"&&set 0|findstr/rix "0=[a-z#$.@[\]_+-][0123456789a-z#$.@[\]_+-]*"||exit/b1)2>nul>nul
+(call if "%%~1"===&&call set "0=%%~1"&&set 0|findstr/rix "0=[a-z#$.@[\]_+-][0123456789a-z#$.@[\]_+-]*"||exit/b1)2>nul>&2
 for /l %%v in (2,1,3)do call if "%%~%%v"===2>nul&&call set "0=%%~%%v"&&(if defined 0 set 0|findstr/rix "0=0 0=[123456789][0123456789]* 0=-[123456789][0123456789]*">nul)||exit/b%%v
 
 set val=
 
 REM Swap min and max if needed
 set /a "min = %~3" 2>nul || set /a "min = 0"
-set /a "max = %~2" 2>nul || set "max="
+set /a "max = %~2" 2>nul || set max=
 if defined max (
 	if %min% equ %max% exit /b 4
 	if %min% gtr %max% set /a "min = max, max = %min%"
