@@ -28,9 +28,9 @@ set /a "min = %~2, max = %~3"
 if %min% gtr %max% set /a "min = max, max = %min%"
 
 if defined %~1 (
-	if %val% lss %min% ( REM Clamp to min
+	if %val% lss %min% ( REM clamp to min
 		set /a "val = min"
-	) else if %val% gtr %max% ( REM Clamp to max
+	) else if %val% gtr %max% ( REM clamp to max
 		set /a "val = max"
 	)
 )
