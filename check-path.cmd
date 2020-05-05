@@ -14,7 +14,7 @@ REM * @returns {errorlevel} invalid parameter (1), is file (10), is folder (11),
 REM */
 
 REM Parameter validation
-(call if "%%~1"===&&call set "0=%%~1"&&set 0|findstr/rix "0=[^*?<>|\"]*||exit/b1)2>nul>nul
+(call if "%%~1"===&&call set "0=%%~1"&&set 0|findstr/rix "0=[^*?<>|\"]*||exit/b1)2>nul>&2
 
 REM Get path attributes
 set "attr=%~a1"
